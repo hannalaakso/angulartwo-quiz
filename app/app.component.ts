@@ -1,18 +1,7 @@
-import { Component } from '@angular/core';
-import { Hero } from './hero';
+import { Component, OnInit } from '@angular/core';
 
-const HEROES: Hero[] = [
-  { id: 11, name: 'Test1' },
-  { id: 12, name: 'Test2' },
-  { id: 13, name: 'Test3' },
-  { id: 14, name: 'Test4' },
-  { id: 15, name: 'Test5' },
-  { id: 16, name: 'Test6' },
-  { id: 17, name: 'Test7' },
-  { id: 18, name: 'Test8' },
-  { id: 19, name: 'Test9' },
-  { id: 20, name: 'Test10' }
-];
+import { Hero } from './hero';
+import { HeroService } from './hero.service';
 
 @Component({
 	//below are called meta-data?
@@ -88,20 +77,40 @@ const HEROES: Hero[] = [
 	    margin-right: .8em;
 	    border-radius: 4px 0 0 4px;
 	  }
-	`]
+	`],
+	//We have to teach the injector how to make a HeroService by registering a HeroService provider. 
+	//The providers array tells Angular to create a fresh instance of the HeroService when it creates a new AppComponent. 
+	//The AppComponent can use that service to get heroes and so can every child component of its component tree.
+	providers: [HeroService]
 })
 //export the class to make it available to other components.
-export class AppComponent {
-	//Start adding stuff here 
-	title = 'Test title';
-	
+export class AppComponent implements OnInit {
+	//Start adding stuff here 	
+	title = 'Test title';	
+	heroes: Hero[];
 	selectedHero: Hero;
-	//We did not have to define the heroes type. TypeScript can infer it from the HEROES array.
-	heroes = HEROES;
-	
+
+	// NOT: heroService = new HeroService();
+	//The parameter simultaneously defines a private heroService property and identifies it as a HeroService injection site.
+	//Now Angular will know to supply an instance of the HeroService when it creates a new AppComponent.
+	//https://angular.io/docs/ts/latest/guide/dependency-injection.html
+	constructor(private heroService: HeroService) { }
+
+	//We don't really need a dedicated method to wrap one line. We write it anyway:	
+	getHeroes(): void {
+		//we're now setting this.heroes to a Promise rather than an array of heroes.
+		//Our callback sets the component's heroes property to the array of heroes returned by the service. 	
+	   this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+	}	
+
+	ngOnInit(): void {
+		this.getHeroes();
+  	}	
+
 	onSelect(hero: Hero): void {
 	  this.selectedHero = hero;
 	}
+
 }
 
 
