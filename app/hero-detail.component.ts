@@ -1,32 +1,39 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Params }   from '@angular/router';
+import { Location }                 from '@angular/common';
+
+import { HeroService } from './hero.service';
+
 import { Hero } from './hero';
 
 @Component({
 	//component elements / metadata
+  moduleId: module.id,
   selector: 'my-hero-detail',
-  template:
-  `<!-- 
-	ngIf and ngFor are called “structural directives” because they can change the structure of portions of the DOM. 
-	https://angular.io/docs/ts/latest/guide/structural-directives.html
-	-->
-	<div *ngIf="hero">
-	    <h2>{{hero.name}} details!</h2>
-	    <div><label>id: </label>{{hero.id}}</div>	   
-    	<div>
-		    <label>name: </label>
-		    <!-- Two way binding 
-		    The parenthesis identify the <li> element’s click event as the target. The expression 
-		    to the right of the equal sign calls the AppComponent method, onSelect(), passing the 
-		    template input variable hero as an argument. That’s the same hero variable we 
-		    defined previously in the ngFor
-		    https://angular.io/docs/ts/latest/guide/user-input.html
-		    -->
-		    <input [(ngModel)]="hero.name" placeholder="name"/>
-  		</div> 
-	</div> `
+  templateUrl: 'hero-detail.component.html',
+  styleUrls: [ 'hero-detail.component.css' ]
+  
 })
 
-export class HeroDetailComponent {
-	@Input()
-	hero: Hero;
+export class HeroDetailComponent implements OnInit {
+	// @Input()
+	// hero: Hero;
+
+	constructor(
+	  private heroService: HeroService,
+	  private route: ActivatedRoute,
+	  private location: Location
+	) {}
+
+	ngOnInit(): void {
+	  this.route.params.forEach((params: Params) => {
+	    let id = +params['id'];
+	    this.heroService.getHero(id)
+	      .then(hero => this.hero = hero);
+	  });
+	}
+
+	goBack(): void {
+	  this.location.back();
+	}
 }

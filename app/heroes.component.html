@@ -1,0 +1,26 @@
+<h2>My Heroes</h2>
+	<ul class="heroes">
+	  <!-- The (*) prefix to ngFor indicates that the <li> element and its children constitute a master template. -->
+	  <!-- The let keyword before "hero" identifies hero as a template input variable. 
+	  We can reference this variable within the template to access a hero’s properties. 
+	  https://angular.io/docs/ts/latest/guide/displaying-data.html#!#ngFor
+	  -->
+	  <!-- The key is the name of the CSS class (selected). The value is true if the two heroes match 
+	  and false otherwise. We’re saying “apply the selected class if the heroes match, remove it if they don’t”. 
+	  Notice in the template that the class.selected is surrounded in square brackets ([]). This is the syntax for 
+	  a property binding, a binding in which data flows one way from the data source (the expression hero === selectedHero) 
+	  to a property of class. https://angular.io/docs/ts/latest/guide/template-syntax.html#!#property-binding
+	  -->
+	  <li *ngFor="let hero of heroes" 	 
+		  [class.selected]="hero === selectedHero" 
+		  (click)="onSelect(hero)">
+		    <span class="badge">{{hero.id}}</span> {{hero.name}}
+	  </li>
+	</ul>
+	<div *ngIf="selectedHero">
+	  <h2>
+	    <!--  https://angular.io/docs/ts/latest/guide/pipes.html  -->
+	    {{selectedHero.name | uppercase}} is my hero
+	  </h2>
+	  <button (click)="gotoDetail()">View Details</button>
+	</div>	
