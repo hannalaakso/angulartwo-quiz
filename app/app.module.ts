@@ -1,4 +1,6 @@
 import { NgModule }      from '@angular/core';
+//Since the QuickStart application is a web application that runs in a browser, your root 
+//module needs to import the BrowserModule from @angular/platform-browser to the imports array.
 import { BrowserModule } from '@angular/platform-browser';
 // Before we can use two-way data binding for form inputs, we need to import the FormsModule package in our Angular module.
 //https://angular.io/docs/ts/latest/guide/forms.html#!#ngModel
@@ -12,6 +14,8 @@ import { HeroService }         from './hero.service';
 
 import { AppRoutingModule }     from './app-routing.module';
 
+//Every Angular application has at least one module: the root module, named AppModule here.
+//This is the entry point to your application.
 @NgModule({
   imports: [ 
   	//This array contains the list of external modules used by our application.
