@@ -17,7 +17,7 @@ import { Hero } from './hero';
 
 export class HeroDetailComponent implements OnInit {
 	// @Input()
-	// hero: Hero;
+	 hero: Hero;
 
 	constructor(
 	  private heroService: HeroService,
@@ -32,6 +32,10 @@ export class HeroDetailComponent implements OnInit {
 	      .then(hero => this.hero = hero);
 	  });
 	}
+
+	checkbox(hero:Hero) {
+        hero.highPriority = (hero.highPriority) ? false : true;
+    }
 
 	goBack(): void {
 	  this.location.back();

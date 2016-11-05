@@ -3,9 +3,10 @@
 	https://angular.io/docs/ts/latest/guide/structural-directives.html
 	-->
 <div *ngIf="hero">
-  <h2>{{hero.name}} details!</h2>
+  <h2>{{hero.name}} details! </h2>
   <div>
-    <label>id: </label>{{hero.id}}</div>
+    <label>id: </label>{{hero.id}}
+  </div>
   <div>
     <label>name: </label>
      <!-- Two way binding 
@@ -15,7 +16,14 @@
     defined previously in the ngFor
     https://angular.io/docs/ts/latest/guide/user-input.html
     -->
-    <input [(ngModel)]="hero.name" placeholder="name" />
+    <input [(ngModel)]="hero.name" placeholder="name" />    
+    
+  </div>
+  <div>
+    <label>high priority?: </label>
+    <br>
+    {{hero.highPriority?'Yes':'No'}}
+    <input   [ngModel]="hero.highPriority" type="checkbox" (change)="checkbox(hero)">
   </div>
   <button (click)="goBack()">Back</button>
 </div>

@@ -24,9 +24,20 @@ export class DashboardComponent implements OnInit {
   //Call the service to get heroes inside the Angular ngOnInit lifecycle hook.
   ngOnInit(): void {
     this.heroService.getHeroes()
-    	//Cherry-pick four heroes (2nd, 3rd, 4th, and 5th)
+        //Cherry-pick four heroes (2nd, 3rd, 4th, and 5th)
       .then(heroes => this.heroes = heroes.slice(1, 5));
-  }
+   }
+
+
+  // getPriorityHeroes(): void {
+  //   //we're now setting this.heroes to a Promise rather than an array of heroes.
+  //   //Our callback sets the component's heroes property to the array of heroes returned by the service.   
+  //    this.heroService.getPriorityHeroes().then(heroes => this.heroes = heroes);
+  // }  
+
+  // ngOnInit(): void {
+  //   this.getPriorityHeroes();
+  // }
 
   gotoDetail(hero: Hero): void {
     let link = ['/detail', hero.id];
