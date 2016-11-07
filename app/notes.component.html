@@ -1,5 +1,5 @@
-<h2>My Heroes</h2>
-	<ul class="heroes">
+<h2>My Notes</h2>
+	<ul class="notes">
 	  <!-- The (*) prefix to ngFor indicates that the <li> element and its children constitute a master template. -->
 	  <!-- The let keyword before "hero" identifies hero as a template input variable. 
 	  We can reference this variable within the template to access a hero’s properties. 
@@ -11,17 +11,17 @@
 	  a property binding, a binding in which data flows one way from the data source (the expression hero === selectedHero) 
 	  to a property of class. https://angular.io/docs/ts/latest/guide/template-syntax.html#!#property-binding
 	  -->
-	  <li *ngFor="let hero of heroes" 	 
-		  [class.selected]="hero === selectedHero" 
-		  (click)="onSelect(hero)">
-		    <span class="badge">{{hero.id}}</span> {{hero.name}}
-		    <span style="color: red;">{{hero.highPriority?'High Priority':''}}</span>		    
+	  <li *ngFor="let note of notes" 	 
+		  [class.selected]="note === selectedNote" 
+		  (click)="onSelect(note)">
+		    <span class="badge">{{note.id}}</span> {{note.name}}
+		    <span style="color: red;">{{note.highPriority?'High Priority':''}}</span>		    
 	  </li>
 	</ul>
-	<div *ngIf="selectedHero">
+	<div *ngIf="selectedNote">
 	  <h2>
 	    <!--  https://angular.io/docs/ts/latest/guide/pipes.html  -->
-	    {{selectedHero.name | uppercase}} is my hero
+	    {{selectedNote.name | uppercase}} is my note
 	  </h2>
 	  <button (click)="gotoDetail()">View Details</button>
 	</div>	

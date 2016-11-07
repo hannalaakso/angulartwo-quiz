@@ -2,10 +2,10 @@
 	ngIf and ngFor are called “structural directives” because they can change the structure of portions of the DOM. 
 	https://angular.io/docs/ts/latest/guide/structural-directives.html
 	-->
-<div *ngIf="hero">
-  <h2>{{hero.name}} details! </h2>
+<div *ngIf="note">
+  <h2>{{note.name}} details! </h2>
   <div>
-    <label>id: </label>{{hero.id}}
+    <label>id: </label>{{note.id}}
   </div>
   <div>
     <label>name: </label>
@@ -16,14 +16,14 @@
     defined previously in the ngFor
     https://angular.io/docs/ts/latest/guide/user-input.html
     -->
-    <input [(ngModel)]="hero.name" placeholder="name" />    
+    <input [(ngModel)]="note.name" placeholder="name" />    
     
   </div>
   <div>
     <label>high priority?: </label>
     <br>
-    {{hero.highPriority?'Yes':'No'}}
-    <input   [ngModel]="hero.highPriority" type="checkbox" (change)="checkbox(hero)">
+    {{note.highPriority?'Yes':'No'}}
+    <input   [ngModel]="note.highPriority" type="checkbox" (change)="checkbox(note)">
   </div>
   <button (click)="goBack()">Back</button>
 </div>

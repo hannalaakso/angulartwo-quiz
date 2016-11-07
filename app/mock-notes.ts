@@ -1,7 +1,7 @@
 //import { Component } from '@angular/core';
-import { Hero } from './hero';
+import { Note } from './note';
 
-export const HEROES: Hero[] = [
+export const NOTES: Note[] = [
   { id: 11, name: 'Test1', highPriority: true},
   { id: 12, name: 'Test2', highPriority: false },
   { id: 13, name: 'Test3', highPriority: false },

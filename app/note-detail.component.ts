@@ -2,25 +2,25 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 
-import { HeroService } from './hero.service';
+import { NoteService } from './note.service';
 
-import { Hero } from './hero';
+import { Note } from './note';
 
 @Component({
 	//component elements / metadata
   moduleId: module.id,
-  selector: 'my-hero-detail',
-  templateUrl: 'hero-detail.component.html',
-  styleUrls: [ 'hero-detail.component.css' ]
+  selector: 'my-note-detail',
+  templateUrl: 'note-detail.component.html',
+  styleUrls: [ 'note-detail.component.css' ]
   
 })
 
-export class HeroDetailComponent implements OnInit {
+export class NoteDetailComponent implements OnInit {
 	// @Input()
-	 hero: Hero;
+	 note: Note;
 
 	constructor(
-	  private heroService: HeroService,
+	  private noteService: NoteService,
 	  private route: ActivatedRoute,
 	  private location: Location
 	) {}
@@ -28,13 +28,13 @@ export class HeroDetailComponent implements OnInit {
 	ngOnInit(): void {
 	  this.route.params.forEach((params: Params) => {
 	    let id = +params['id'];
-	    this.heroService.getHero(id)
-	      .then(hero => this.hero = hero);
+	    this.noteService.getNote(id)
+	      .then(note => this.note = note);
 	  });
 	}
 
-	checkbox(hero:Hero) {
-        hero.highPriority = (hero.highPriority) ? false : true;
+	checkbox(note:Note) {
+        note.highPriority = (note.highPriority) ? false : true;
     }
 
 	goBack(): void {

@@ -8,9 +8,9 @@ import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
 import { DashboardComponent } from './dashboard.component';
-import { HeroDetailComponent } from './hero-detail.component';
-import { HeroesComponent }     from './heroes.component';
-import { HeroService }         from './hero.service';
+import { NoteDetailComponent } from './note-detail.component';
+import { NotesComponent }     from './notes.component';
+import { NoteService }         from './note.service';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -27,14 +27,14 @@ import { AppRoutingModule }     from './app-routing.module';
   declarations: [ 
   	AppComponent, 
     DashboardComponent,
-  	HeroDetailComponent,
-    HeroesComponent
+  	NoteDetailComponent,
+    NotesComponent
   ],
-  //We have to teach the injector how to make a HeroService by registering a HeroService provider. 
-  //The providers array tells Angular to create a fresh instance of the HeroService when it creates a new AppComponent. 
+  //We have to teach the injector how to make a NoteService by registering a NoteService provider. 
+  //The providers array tells Angular to create a fresh instance of the NoteService when it creates a new AppComponent. 
   //The AppComponent can use that service to get heroes and so can every child component of its component tree.
   providers: [
-    HeroService
+    NoteService
   ],
   bootstrap: [ AppComponent ]
 })

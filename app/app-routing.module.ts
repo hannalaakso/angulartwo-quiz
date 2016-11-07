@@ -5,8 +5,8 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent }   from './dashboard.component';
-import { HeroesComponent }      from './heroes.component';
-import { HeroDetailComponent }  from './hero-detail.component';
+import { NotesComponent }      from './notes.component';
+import { NoteDetailComponent }  from './note-detail.component';
 
 //Pull the routes into a variable. You might export it in future and it clarifies the Routing Module pattern.
 const routes: Routes = [
@@ -14,8 +14,8 @@ const routes: Routes = [
   //https://angular.io/docs/ts/latest/guide/router.html    
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard',  component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'heroes',     component: HeroesComponent }
+  { path: 'detail/:id', component: NoteDetailComponent },
+  { path: 'notes',     component: NotesComponent }
 ];
 
 @NgModule({
