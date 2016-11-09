@@ -1,7 +1,7 @@
 h1 {
-  font-size: 1.2em;
-  color: #999;
-  margin-bottom: 0;
+    font-size: 2em;
+    color: darkblue;
+    margin-bottom: 20px;
 }
 h2 {
   font-size: 2em;
@@ -17,12 +17,12 @@ nav a {
   border-radius: 4px;
 }
 nav a:visited, a:link {
-  color: #607D8B;
+  color: #4d4d88;
 }
 nav a:hover {
-  color: #039be5;
+  color: #4d4d88;
   background-color: #CFD8DC;
 }
 nav a.active {
-  color: #039be5;
+  color: #4d4d88;
 }

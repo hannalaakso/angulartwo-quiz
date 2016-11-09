@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
-import { DashboardComponent } from './dashboard.component';
+import { QuicklookComponent } from './quicklook.component';
 import { NoteDetailComponent } from './note-detail.component';
 import { NotesComponent }     from './notes.component';
 import { NoteService }         from './note.service';
@@ -26,13 +26,13 @@ import { AppRoutingModule }     from './app-routing.module';
   ],
   declarations: [ 
   	AppComponent, 
-    DashboardComponent,
+    QuicklookComponent,
   	NoteDetailComponent,
     NotesComponent
   ],
   //We have to teach the injector how to make a NoteService by registering a NoteService provider. 
   //The providers array tells Angular to create a fresh instance of the NoteService when it creates a new AppComponent. 
-  //The AppComponent can use that service to get heroes and so can every child component of its component tree.
+  //The AppComponent can use that service to get notes and so can every child component of its component tree.
   providers: [
     NoteService
   ],

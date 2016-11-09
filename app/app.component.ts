@@ -11,10 +11,10 @@ import { Component } from '@angular/core';
     We bind the RouterLink directive (another of the RouterModule directives) to a string that tells 
     the router where to navigate when the user clicks the link. 
     Since our link is not dynamic, we define a routing instruction with a one-time binding to our route path. 
-    Looking back at the route configuration, we confirm that '/heroes' is the path of the route to the NotesComponent.
+    Looking back at the route configuration, we confirm that '/notes' is the path of the route to the NotesComponent.
     -->
     <nav>
-	    <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+	    <a routerLink="/quicklook" routerLinkActive="active">Quick look</a>
 	    <a routerLink="/notes" routerLinkActive="active">All notes</a>
 	  </nav>
     <!--  Acts as a placeholder that Angular dynamically fills based on the current router state. -->

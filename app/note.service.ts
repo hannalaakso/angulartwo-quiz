@@ -13,19 +13,41 @@ export class NoteService {
 	//return results asynchronously
 	getNotes(): Promise<Note[]> {
 	  return Promise.resolve(NOTES);
-	}
+	}	
 
 	getNote(id: number): Promise<Note> {
 	  return this.getNotes()
 	             .then(notes => notes.find(note => note.id === id));
 	}
 
-	// getPriorityHeroes(): Promise<Hero[]> {
+	// getPriorityNotes(): Promise<Note> {
 
-	//   return this.getHeroes()
+	//   return this.getNotes()
+	//   				//continue here
 	//              .then(
-	//              	heroes => heroes.find(hero => hero.highPriority === false));
+	//              	priorityNotes =>
+	//              	(
+	//              		var test = Note[];
+	//              		for( var i = 0; i < notes.length; i++ ){
+	// 					  if( users[ i ].id === 70 ){
+	// 					    selectedUser = users[ i ];
+
+	// 					    break;
+	// 					  }
+	// 					};
+	// 				)
+
+
+
+
+	//              	//priorityNotes => priorityNotes.find(note => note.highPriority === true)
+	//              );
 	// }
+
+	getNotesCount(): Promise<number> {
+		return this.getNotes()
+				.then(count => Object.keys(count).length);
+	}
 
 	getNotesSlowly(): Promise< Note[]> {
 	  return new Promise<Note[]>(resolve =>

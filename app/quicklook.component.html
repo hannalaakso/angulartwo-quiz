@@ -1,0 +1,20 @@
+<br>
+<div>
+    {{count}} notes saved 
+    Last amend: <br>
+
+</div>
+
+<h3>Priority notes</h3>
+<div class="grid grid-pad">
+<!-- 	{{priorityNotes.name}}
+ -->  
+ <div *ngFor="let note of priorityNotes" (click)="gotoDetail(note)" class="col-1-4">
+    <div class="module note">
+    test
+      <h4>{{note.name}}</h4>
+    </div>
+  </div>
+</div>
+
+

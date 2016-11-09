@@ -4,7 +4,7 @@ import { NgModule }             from '@angular/core';
 //RouterLink, RouterLinkActive), and a configuration (Routes).
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent }   from './dashboard.component';
+import { QuicklookComponent }   from './quicklook.component';
 import { NotesComponent }      from './notes.component';
 import { NoteDetailComponent }  from './note-detail.component';
 
@@ -12,8 +12,8 @@ import { NoteDetailComponent }  from './note-detail.component';
 const routes: Routes = [
   //route definition
   //https://angular.io/docs/ts/latest/guide/router.html    
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard',  component: DashboardComponent },
+  { path: '', redirectTo: '/quicklook', pathMatch: 'full' },
+  { path: 'quicklook',  component: QuicklookComponent },
   { path: 'detail/:id', component: NoteDetailComponent },
   { path: 'notes',     component: NotesComponent }
 ];

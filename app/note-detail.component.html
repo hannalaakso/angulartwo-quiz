@@ -12,20 +12,21 @@
      <!-- Two way binding 
     The parenthesis identify the <li> element’s click event as the target. The expression 
     to the right of the equal sign calls the AppComponent method, onSelect(), passing the 
-    template input variable hero as an argument. That’s the same hero variable we 
+    template input variable note as an argument. That’s the same note variable we 
     defined previously in the ngFor
     https://angular.io/docs/ts/latest/guide/user-input.html
     -->
     <input [(ngModel)]="note.name" placeholder="name" />    
     
   </div>
-  <div>
-    <label>high priority?: </label>
-    <br>
-    {{note.highPriority?'Yes':'No'}}
-    <input   [ngModel]="note.highPriority" type="checkbox" (change)="checkbox(note)">
+   <div>
+     <label>text: </label>{{note.text}}
   </div>
+  <div>
+    <label>high priority?: </label>{{note.highPriority?'Yes':'No'}}
+    <br>
+    {{note.highPriority?'Untick to remove High Priority':'Tick to make note High Priority'}}
+    <input   [ngModel]="note.highPriority" type="checkbox" (change)="checkbox(note)">
+  </div> 
   <button (click)="goBack()">Back</button>
 </div>
-
-<!-- Cant't find hero?? -->

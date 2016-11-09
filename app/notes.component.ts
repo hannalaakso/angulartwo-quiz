@@ -14,7 +14,7 @@ import { NoteService } from './note.service';
     styleUrls: [ 'notes.component.css' ]
 	//We have to teach the injector how to make a NoteService by registering a NoteService provider. 
 	//The providers array tells Angular to create a fresh instance of the NoteService when it creates a new AppComponent. 
-	//The AppComponent can use that service to get heroes and so can every child component of its component tree.
+	//The AppComponent can use that service to get notes and so can every child component of its component tree.
 	//providers: [NoteService]
 })
 //export the class to make it available to other components.
@@ -34,8 +34,8 @@ export class NotesComponent implements OnInit {
 
 	//We don't really need a dedicated method to wrap one line. We write it anyway:	
 	getNotes(): void {
-		//we're now setting this.heroes to a Promise rather than an array of heroes.
-		//Our callback sets the component's heroes property to the array of heroes returned by the service. 	
+		//we're now setting this.notes to a Promise rather than an array of notes.
+		//Our callback sets the component's notes property to the array of notes returned by the service. 	
 	   this.noteService.getNotes().then(notes => this.notes = notes);
 	}	
 
