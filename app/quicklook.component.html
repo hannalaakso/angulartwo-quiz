@@ -1,7 +1,7 @@
 <br>
 <div>
-    {{count}} notes saved 
-    Last amend: <br>
+    {{count}} notes saved <br><br>
+    Last amend: {{ date | date:"MM/dd/yy hh:mm" }}<br>
 
 </div>
 
@@ -11,10 +11,7 @@
  -->  
  <div *ngFor="let note of priorityNotes" (click)="gotoDetail(note)" class="col-1-4">
     <div class="module note">
-    test
       <h4>{{note.name}}</h4>
     </div>
   </div>
 </div>
-
-

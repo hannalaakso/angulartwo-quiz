@@ -27,5 +27,5 @@ import { Component } from '@angular/core';
 //Here, you only have the root component, AppComponent. Since you don't 
 //need any application logic in the simple QuickStart example, it's empty.
 export class AppComponent {
-  title = 'My notes';
+  title = '';
 }

@@ -12,3 +12,7 @@ export const NOTES: Note[] = [
   { id: 18, name: 'Pay bills', highPriority: false, text: 'Before the end of the month' },
   { id: 19, name: 'Hoover', highPriority: false, text: 'On Saturday morning' }
 ];
+
+export const DATE: Date = new Date();
+
+

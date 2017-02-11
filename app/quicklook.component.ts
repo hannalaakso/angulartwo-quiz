@@ -17,6 +17,7 @@ export class QuicklookComponent implements OnInit {
   //notes: Note[];
   count: number;
   priorityNotes: Note[];
+  date: Date = new Date();
 
   //Inject the NoteService in the constructor and hold it in a private noteService field.
   constructor(
@@ -50,6 +51,7 @@ export class QuicklookComponent implements OnInit {
       };        // do whatever with res here
     });
 
+   this.noteService.getDate().then(date => this.date = date);
 
 
 
