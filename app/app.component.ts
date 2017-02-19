@@ -14,7 +14,10 @@ import { Component } from '@angular/core';
     Looking back at the route configuration, we confirm that '/notes' is the path of the route to the NotesComponent.
     -->
     <nav>
-	    <a routerLink="/quicklook" routerLinkActive="active">Quick look</a>
+	    <a routerLink="/selection" routerLinkActive="active">Selection</a>
+      <a routerLink="/question" routerLinkActive="active">Question</a>
+      <a routerLink="/answer" routerLinkActive="active">Answer</a>
+      <a routerLink="/summary" routerLinkActive="active">Summary</a>
 	    <a routerLink="/notes" routerLinkActive="active">All notes</a>
 	  </nav>
     <!--  Acts as a placeholder that Angular dynamically fills based on the current router state. -->
@@ -27,5 +30,5 @@ import { Component } from '@angular/core';
 //Here, you only have the root component, AppComponent. Since you don't 
 //need any application logic in the simple QuickStart example, it's empty.
 export class AppComponent {
-  title = '';
+  title = 'test';
 }

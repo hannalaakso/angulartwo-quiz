@@ -4,16 +4,22 @@ import { NgModule }             from '@angular/core';
 //RouterLink, RouterLinkActive), and a configuration (Routes).
 import { RouterModule, Routes } from '@angular/router';
 
-import { QuicklookComponent }   from './quicklook.component';
-import { NotesComponent }      from './notes.component';
-import { NoteDetailComponent }  from './note-detail.component';
+import { SelectionComponent }   from './components/selection/selection.component';
+import { QuestionComponent }   from './components/question/question.component';
+import { AnswerComponent } from './components/answer/answer.component';
+import { SummaryComponent } from './components/summary/summary.component';
+import { NotesComponent }      from './old-modules/notes.component';
+import { NoteDetailComponent }  from './old-modules/note-detail.component';
 
 //Pull the routes into a variable. You might export it in future and it clarifies the Routing Module pattern.
 const routes: Routes = [
   //route definition
   //https://angular.io/docs/ts/latest/guide/router.html    
-  { path: '', redirectTo: '/quicklook', pathMatch: 'full' },
-  { path: 'quicklook',  component: QuicklookComponent },
+  { path: '', redirectTo: '/selection', pathMatch: 'full' },
+  { path: 'selection',  component: SelectionComponent },
+  { path: 'question',  component: QuestionComponent },
+  { path: 'answer', component: AnswerComponent},
+  { path: 'summary', component: SummaryComponent},
   { path: 'detail/:id', component: NoteDetailComponent },
   { path: 'notes',     component: NotesComponent }
 ];

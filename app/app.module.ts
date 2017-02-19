@@ -7,10 +7,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 
 import { AppComponent }  from './app.component';
-import { QuicklookComponent } from './quicklook.component';
-import { NoteDetailComponent } from './note-detail.component';
-import { NotesComponent }     from './notes.component';
-import { NoteService }         from './note.service';
+import { SelectionComponent } from './components/selection/selection.component';
+import { QuestionComponent } from './components/question/question.component';
+import { AnswerComponent } from './components/answer/answer.component';
+import { SummaryComponent } from './components/summary/summary.component';
+import { NoteDetailComponent } from './old-modules/note-detail.component';
+import { NotesComponent }     from './old-modules/notes.component';
+import { NoteService }         from './old-modules/note.service';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -26,7 +29,10 @@ import { AppRoutingModule }     from './app-routing.module';
   ],
   declarations: [ 
   	AppComponent, 
-    QuicklookComponent,
+    SelectionComponent,
+    QuestionComponent,
+    AnswerComponent,
+    SummaryComponent,
   	NoteDetailComponent,
     NotesComponent
   ],
