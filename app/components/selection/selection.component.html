@@ -5,13 +5,23 @@
 
 </div>
 
-<h3>Priority notes</h3>
+<h3>Selection page</h3>
 <div class="grid grid-pad">
 <!-- 	{{priorityNotes.name}}
  -->  
- <div *ngFor="let note of priorityNotes" (click)="gotoDetail(note)" class="col-1-4">
+
+<!--  <div class="row">
+ 	 <div *ngFor="let note of priorityNotes" (click)="gotoDetail(note)" class="col-1-4">
     <div class="module note">
       <h4>{{note.name}}</h4>
     </div>
   </div>
 </div>
+ -->
+<div style="width: 100%; clear: both; margin-top: 150px; ">
+	<a routerLink="/question" >Question</a>
+</div>
+ </div>
+
+
+

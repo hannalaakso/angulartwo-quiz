@@ -1,0 +1,35 @@
+Sprint 1:
+Set up page stcture: Search > Question > Answer > Summary
+Set up top navigation to go to all pages
+Create data:
+Question: Linked answers object, Question text, Level: Easy/Medium/Hard
+Answer: Answer text, linked questions
+Get question 1 to show on Question screen
+Get answer 1 to show on Answer screen
+
+
+Sprint 2:
+Place everything on one page
+Get answers linked to question 1 on answer screen
+Create data:
+User stats:
+Questions answered correctly
+Questions answer incorrectly
+
+Sprint 3:
+Show progress bar
+
+
+
+
+
+Deliverables:
+Search page
+Question page
+Answer page
+Summary page
+
+walk through:
+app.routing.module looks at paths (url) and selects page to show based on this
+app component provides global layout (nav etc) template, global title
+main bootstraps the app (this is what's loaded in from systemsjs.config in root

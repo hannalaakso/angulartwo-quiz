@@ -1,0 +1,22 @@
+<h1>This is question page</h1>
+
+<br>	<br>
+
+	<ul class="notes">
+	  <!-- The (*) prefix to ngFor indicates that the <li> element and its children constitute a master template. -->
+	  <!-- The let keyword before "note" identifies note as a template input variable. 
+	  We can reference this variable within the template to access a note’s properties. 
+	  https://angular.io/docs/ts/latest/guide/displaying-data.html#!#ngFor
+	  -->
+	  <!-- The key is the name of the CSS class (selected). The value is true if the two notes match 
+	  and false otherwise. We’re saying “apply the selected class if the notes match, remove it if they don’t”. 
+	  Notice in the template that the class.selected is surrounded in square brackets ([]). This is the syntax for 
+	  a property binding, a binding in which data flows one way from the data source (the expression note === selectedNote) 
+	  to a property of class. https://angular.io/docs/ts/latest/guide/template-syntax.html#!#property-binding
+	  -->
+	  <li *ngFor="let question of questions">
+		    <span class="badge">{{question.id}}</span> {{question.text}}
+	  </li>
+	</ul>
+
+<a routerLink="/answer" >Answer</a>

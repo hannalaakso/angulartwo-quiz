@@ -1,5 +1,5 @@
 //import { Component } from '@angular/core';
-import { Note } from './note';
+import { Note } from './../old-modules/note';
 
 export const NOTES: Note[] = [
   {id: 11, name: 'Buy milk', highPriority: true, text: 'From the shop'},

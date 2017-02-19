@@ -11,11 +11,11 @@ import { NoteService } from './note.service';
     templateUrl: 'notes.component.html',
     //The styleUrls property is an array of style file names (with paths). We could list 
     //multiple style files from different locations if we needed them.
-    styleUrls: [ 'notes.component.css' ]
+    styleUrls: [ 'notes.component.css' ],
 	//We have to teach the injector how to make a NoteService by registering a NoteService provider. 
 	//The providers array tells Angular to create a fresh instance of the NoteService when it creates a new AppComponent. 
 	//The AppComponent can use that service to get notes and so can every child component of its component tree.
-	//providers: [NoteService]
+	providers: [NoteService]
 })
 //export the class to make it available to other components.
 export class NotesComponent implements OnInit {

@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Note } from './note';
-import { NoteService } from './note.service';
+import { Note } from './../../old-modules/note';
+import { NoteService } from './../../old-modules/note.service';
 
 @Component({
-  selector: 'my-quicklook',
-  templateUrl: 'app/quicklook.component.html',
-  styleUrls: [ 'app/quicklook.component.css' ]
+  selector: 'my-selection',
+  templateUrl: 'app/components/selection/selection.component.html',
+  styleUrls: [ 'app/components/selection/selection.component.css' ]
 })
 
-export class QuicklookComponent implements OnInit {
+export class SelectionComponent implements OnInit {
 
   //Define a notes array property.
   notes: Note[] = [];
