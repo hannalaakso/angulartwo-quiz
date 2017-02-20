@@ -20,16 +20,18 @@ export class QuestionService {
 				.then(questions => questions.find(question => question.id == id));
 	}
 
-	getRandomQuestion(id: number): Promise<Question> {
+	getRandomQuestion(): Promise<Question> {
+
 		//debugger;
 		return this.getQuestions()
-				.then(
-					questions => questions.find(question => question.id == id)
-					)
-				.catch(function (err) {
-                    console.log(err.message);
-                    console.log(err.stack);
-                });;
+
+			.then(
+				questions => questions.find(question => question.id == Math.floor(Math.random()*questions.length))
+				)
+			.catch(function (err) {
+	            console.log(err.message);
+	            console.log(err.stack);
+	        });
 	}
 
 	// getRandomQuestion(): Promise<Question> {

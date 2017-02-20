@@ -51,10 +51,11 @@ export class QuizComponent implements OnInit {
    // debugger;
          //this.getQuestions();
 
-         this.questionService.getQuestions().then(questions => this.questions = questions);
-           var id = Math.floor(Math.random()*this.questions.length);
-           debugger;
-             this.questionService.getRandomQuestion(1).then(question => this.question = question);
+         this.questionService.getQuestions()
+           .then(questions => this.questions = questions);
+           ///var id = Math.floor(Math.random()*this.questions.length);
+           //debugger;
+             this.questionService.getRandomQuestion().then(question => this.question = question);
              //debugger;
 
          // articleService.getArticles('angular')

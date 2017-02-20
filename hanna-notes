@@ -19,6 +19,9 @@ Questions answer incorrectly
 Sprint 3:
 Show progress bar
 
+Unresolved things:
+In question.service.ts > getRandomQuestion, promises should be chained as something getQuestions is not resolved when questions.length
+is being fetched
 
 
 

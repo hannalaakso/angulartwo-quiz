@@ -21,12 +21,15 @@
 
  <!-- get note with id 1 -->
 
- {{question.id}}
- {{question.text}}
+ <!-- {{question.id}} -->
+ <h5>Please answer this question</h5>
+ <p>{{question.text}}</p>
 
- 	  <li *ngFor="let question of questions">
+ <h5>Please select from these answers</h5>
+
+ 	 <!--  <li *ngFor="let question of questions">
 		    <span class="badge">{{question.id}}</span> {{question.text}}
-	  </li>
+	  </li> -->
 <div style="width: 100%; clear: both; margin-top: 150px; ">
 	<a routerLink="/question" >Question</a>
 </div>
