@@ -1,0 +1,36 @@
+<br>
+<div>
+    {{count}} notes saved <br><br>
+    Last amend: {{ date | date:"MM/dd/yy hh:mm" }}<br>
+
+</div>
+
+<h3>Quiz page</h3>
+<div class="grid grid-pad">
+<!-- 	{{priorityNotes.name}}
+ -->  
+
+<!--  <div class="row">
+ 	 <div *ngFor="let note of priorityNotes" (click)="gotoDetail(note)" class="col-1-4">
+    <div class="module note">
+      <h4>{{note.name}}</h4>
+    </div>
+  </div>
+</div>
+ -->
+
+ <!-- get note with id 1 -->
+
+ {{question.id}}
+ {{question.text}}
+
+ 	  <li *ngFor="let question of questions">
+		    <span class="badge">{{question.id}}</span> {{question.text}}
+	  </li>
+<div style="width: 100%; clear: both; margin-top: 150px; ">
+	<a routerLink="/question" >Question</a>
+</div>
+ </div>
+
+
+

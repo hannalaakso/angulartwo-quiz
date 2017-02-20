@@ -15,6 +15,34 @@ export class QuestionService {
 
 	}
 
+	getQuestion(id: number): Promise<Question> {
+		return this.getQuestions()
+				.then(questions => questions.find(question => question.id == id));
+	}
+
+	getRandomQuestion(id: number): Promise<Question> {
+		//debugger;
+		return this.getQuestions()
+				.then(
+					questions => questions.find(question => question.id == id)
+					)
+				.catch(function (err) {
+                    console.log(err.message);
+                    console.log(err.stack);
+                });;
+	}
+
+	// getRandomQuestion(): Promise<Question> {
+	// 	return this.getQuestions()	
+	// 			.then(questions => questions.find(question => question.id == id));
+	// 			//.then(questions => questions.find(question => (Math.floor(Math.random()*questions.length)) == id));		
+	// }
+
+	// getNote(id: number): Promise<Note> {
+	//   return this.getNotes()
+	//              .then(notes => notes.find(note => note.id === id));
+	// }
+
 	//return results asynchronously
 	getQuestions(): Promise<Question[]> {
 		//debugger;

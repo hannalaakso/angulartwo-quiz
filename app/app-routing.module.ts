@@ -4,6 +4,7 @@ import { NgModule }             from '@angular/core';
 //RouterLink, RouterLinkActive), and a configuration (Routes).
 import { RouterModule, Routes } from '@angular/router';
 
+import { QuizComponent }   from './components/quiz/quiz.component';
 import { SelectionComponent }   from './components/selection/selection.component';
 import { QuestionComponent }   from './components/question/question.component';
 import { AnswerComponent } from './components/answer/answer.component';
@@ -15,7 +16,8 @@ import { NoteDetailComponent }  from './old-modules/note-detail.component';
 const routes: Routes = [
   //route definition
   //https://angular.io/docs/ts/latest/guide/router.html    
-  { path: '', redirectTo: '/selection', pathMatch: 'full' },
+  { path: '', redirectTo: '/quiz', pathMatch: 'full' },
+  { path: 'quiz',  component: QuizComponent },
   { path: 'selection',  component: SelectionComponent },
   { path: 'question',  component: QuestionComponent },
   { path: 'answer', component: AnswerComponent},

@@ -26,16 +26,16 @@ export class QuestionComponent implements OnInit {
 	ngOnInit(): void {
 	    var that = this;
 
-	    this.getQuestions();
+	    //this.getQuestions();
 	    //debugger;
 
 	    		//this.questionService.getQuestions().then(questions => this.questions = questions);
 
 	}
 
-	getQuestions(): void {
+	// getQuestions(): void {
 
-		this.questionService.getQuestions().then(questions => this.questions = questions);
-	}
+	// 	this.questionService.getQuestions().then(questions => this.questions = questions);
+	// }
 
 }

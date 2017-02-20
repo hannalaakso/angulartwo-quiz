@@ -33,3 +33,5 @@ walk through:
 app.routing.module looks at paths (url) and selects page to show based on this
 app component provides global layout (nav etc) template, global title
 main bootstraps the app (this is what's loaded in from systemsjs.config in root
+
+to create a new module: include it in both app (add also in declarations here) and routing and export it with the same name in ts
