@@ -3,28 +3,45 @@ Set up page stcture: Search > Question > Answer > Summary
 Set up top navigation to go to all pages
 Create data:
 Question: Linked answers object, Question text, Level: Easy/Medium/Hard
-Answer: Answer text, linked questions
 Get question 1 to show on Question screen
-Get answer 1 to show on Answer screen
 
 
 Sprint 2:
 Place everything on one page
 Get answers linked to question 1 on answer screen
+Get answer 1 to show on Answer screen
+Show random question
+Show answers linked to random question
+
+
+Sprint 3:
+Refine answer content
+Create multiple clickable answers list (checkboxes?) https://juristr.com/blog/2016/11/ng2-binding-radiobutton-lists/
+
+
+Sprint 4
+Refresh to show new random question when checkbox ticked
+Give each answer id
+Check if question answered correctly
+
+
+
+Sprint 5
 Create data:
 User stats:
 Questions answered correctly
-Questions answer incorrectly
 
-Sprint 3:
+Sprint 6:
 Show progress bar
 
 Unresolved things:
-In question.service.ts > getRandomQuestion, promises should be chained as something getQuestions is not resolved when questions.length
+-In question.service.ts > getRandomQuestion, promises should be chained as something getQuestions is not resolved when questions.length
 is being fetched
+-in question.component.ts, question: Question[] = [] should be question: Question but this doesn't get picked by quizcomponent. currently 
+this throws an error on npm start
 
 
-
+Don't forget Systemjs.config.js in root is hidden
 
 Deliverables:
 Search page

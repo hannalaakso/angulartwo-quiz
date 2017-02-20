@@ -1,46 +1,103 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import * as _ from "lodash";
+//import _ from "lodash";
+
+console.log('lodash version:', _.VERSION);
+
 import { Note } from './../../old-modules/note';
 import { NoteService } from './../../old-modules/note.service';
 
 import { Question } from './../../models/question/question';
 import { QuestionService } from './../../models/question/question.service';
 
+import { AnswerGroup } from './../../models/answer/answer';
+import { AnswerService } from './../../models/answer/answer.service';
+
 @Component({
   selector: 'my-quiz',
   templateUrl: 'app/components/quiz/quiz.component.html',
   styleUrls: [ 'app/components/quiz/quiz.component.css' ],
-  providers: [QuestionService]
+  providers: [QuestionService, AnswerService]
 })
 
 export class QuizComponent implements OnInit {
 
-    questions: Question[] = [];
+  questions: Question[] = [];
   question: Question[] = [];
-  note: Note;
+   // question: Question;
+  answers: AnswerGroup[] = [];
+  relevantAnswers: AnswerGroup[] = [];
 
+  //note: Note;
   //Define a notes array property.
-  notes: Note[] = [];
+  //notes: Note[] = [];
   //notes: Note[];
   count: number;
   priorityNotes: Note[];
   date: Date = new Date();
 
 
-
   //Inject the NoteService in the constructor and hold it in a private noteService field.
   constructor(
     private router: Router,
     private noteService: NoteService,
-    private questionService: QuestionService) { 
+    private questionService: QuestionService, 
+    private answerService: AnswerService) { 
   }
 
-  //We don't really need a dedicated method to wrap one line. We write it anyway:  
-  getNotes(): void {
-    //we're now setting this.notes to a Promise rather than an array of notes.
-    //Our callback sets the component's notes property to the array of notes returned by the service.   
-     this.noteService.getNotes().then(notes => this.notes = notes);
+ onSelectionChange(item: AnswerGroup) {
+   console.log(item);
+      //this.selectedEntry = entry;
+    this.getRandomQuestion();
+
+  }
+
+  checkIfCorrectAnswer(): void {
+
+
+  }
+
+  getAnswers(): void {
+    var that = this;
+
+    //get answerid from randomquestion
+    //get answer that matches that id
+
+
+    // that.answerService.getAnswers().then(function(data){
+    //  debugger;
+
+    //   that.relevantAnswers = _.find(data, function (o){
+    //     debugger;
+    //     return o.id === 1;
+    //   });
+
+    // });
+
+
+    // var getMatchingAnswers = function () {
+    //     this.answerService.getAnswers()
+    //       // .then()
+    //       .then(function () {
+    //         _.find(this.answers, function (o){
+    //           debugger;
+    //           console.log(o.answersId === 1);
+    //           console.log('test');
+           
+    //       })
+    //       // .catch(function (error) {
+    //       //   // if there are any errors in promise chain
+    //       //   // we can catch them in one place, yay!
+    //       // });
+    // };
+
+    // this.answerService.getAnswers()
+    //   // .then(
+    //   //     relevantAnswers => _.find(this.answers, function (o){debugger;console.log(o.answersId === 1);console.log('test');
+    //   //       //return;
+    //   //   });
   }
 
   getQuestions(): void {
@@ -48,14 +105,38 @@ export class QuizComponent implements OnInit {
   }
 
   getRandomQuestion(): void {
+
+    var that = this;
    // debugger;
          //this.getQuestions();
 
-         this.questionService.getQuestions()
-           .then(questions => this.questions = questions);
+         // this.questionService.getQuestions()
+         //   .then(questions => this.questions = questions);
            ///var id = Math.floor(Math.random()*this.questions.length);
            //debugger;
-             this.questionService.getRandomQuestion().then(question => this.question = question);
+             // this.questionService.getRandomQuestion()
+             //   .then(question => this.question = question)
+             //   .then(relevantAnswers => this.relevantAnswers = this.answerService.getAnswersToQuestion(this.question.answerId));
+
+            this.questionService.getRandomQuestion().then(function (question) {
+                that.question = question;
+                // debugger;
+              }).then(function (question) {
+                // debugger;
+                return that.answerService.getAnswersToQuestion(that.question.answersId);
+              }).then(function (relevantAnswers) {
+                debugger;
+                 that.relevantAnswers = relevantAnswers;
+                 // debugger;
+              }).catch(function (err) {
+                console.log(err);
+              });   
+
+               
+               
+               
+               
+
              //debugger;
 
          // articleService.getArticles('angular')
@@ -76,9 +157,10 @@ export class QuizComponent implements OnInit {
 
     var that = this;
 
+    this.getAnswers();
+
      this.getQuestions();
      this.getRandomQuestion();
-
 
    // this.noteService.getNotes().then(
    //   notes => that.notes = notes     
@@ -127,6 +209,13 @@ export class QuizComponent implements OnInit {
    //                  //break;
    //      }
    //    };  
+
+     //We don't really need a dedicated method to wrap one line. We write it anyway:  
+  // getNotes(): void {
+  //   //we're now setting this.notes to a Promise rather than an array of notes.
+  //   //Our callback sets the component's notes property to the array of notes returned by the service.   
+  //    this.noteService.getNotes().then(notes => this.notes = notes);
+  // }
 
 
   // getPriorityNotes(): void {

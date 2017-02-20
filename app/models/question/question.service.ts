@@ -10,6 +10,8 @@ import { QUESTIONS } from './../../data/questions';
 @Injectable()
 export class QuestionService {
 
+	 questions: Question[] = [];
+
 	ngOnInit(): void {
 		var that = this;
 
@@ -22,16 +24,23 @@ export class QuestionService {
 
 	getRandomQuestion(): Promise<Question> {
 
-		//debugger;
 		return this.getQuestions()
+           .then(questions => this.questions = questions)
+           .then(questions => questions.find(question => question.id == Math.floor(Math.random()*questions.length)));
 
-			.then(
-				questions => questions.find(question => question.id == Math.floor(Math.random()*questions.length))
-				)
-			.catch(function (err) {
-	            console.log(err.message);
-	            console.log(err.stack);
-	        });
+  //         this.questionService.getRandomQuestion()
+  //         .then(question => this.question = question);
+
+		// //debugger;
+		// return this.getQuestions()
+
+		// 	.then(
+		// 		questions => questions.find(question => question.id == Math.floor(Math.random()*questions.length))
+		// 		)
+		// 	.catch(function (err) {
+	 //            console.log(err.message);
+	 //            console.log(err.stack);
+	 //        });
 	}
 
 	// getRandomQuestion(): Promise<Question> {

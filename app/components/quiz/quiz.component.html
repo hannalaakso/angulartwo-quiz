@@ -27,9 +27,20 @@
 
  <h5>Please select from these answers</h5>
 
- 	 <!--  <li *ngFor="let question of questions">
-		    <span class="badge">{{question.id}}</span> {{question.text}}
-	  </li> -->
+ <p>{{relevantAnswers.text}}</p>
+
+<!-- Add [checked]="idx === 0" to input to have first item selected -->
+ 	  <li *ngFor="let item of relevantAnswers.items; let idx = index">
+		    <span class="badge">{{item}}</span> 
+		    <input type="radio" name="radiogroup"
+		     
+		     [value]="item" (change)="onSelectionChange(item)" >
+<!-- 		    {{item}}
+ -->	  </li>
+
+<!--  <button (click)="gotoDetail()">Submit</button>
+ -->
+
 <div style="width: 100%; clear: both; margin-top: 150px; ">
 	<a routerLink="/question" >Question</a>
 </div>
