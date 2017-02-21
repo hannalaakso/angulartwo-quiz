@@ -1,6 +1,8 @@
+import { Answer } from './answer';
+
+
 export class AnswerGroup {
 	id: number;
-	itemIds: Object;
-	items: Object;
-	correctAnswer: number;
+	correctAnswerId: number;
+	realItems: Answer
 }

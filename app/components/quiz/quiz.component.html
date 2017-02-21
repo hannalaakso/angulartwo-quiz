@@ -25,21 +25,21 @@
  <h5>Please answer this question</h5>
  <p>{{question.text}}</p>
 
- <h5>Please select from these answers</h5>
-
  <p>{{answerGroup.text}}</p>
 
 <!-- Add [checked]="idx === 0" to input to have first item selected -->
- 	  <li *ngFor="let item of answerGroup.items; let idx = index">
-		    <span class="badge">{{item}}</span> 
+ 	  <li *ngFor="let item of answerGroup.realItems; let idx = index">
+		    <span class="badge">{{item.text}}</span> 
 		    <input type="radio" name="radiogroup"
 		     
-		     [value]="item" (change)="onSelectionChange(item)" >
+		     [value]="item" (change)="onSelectionChange(answerGroup, item)" >
 <!-- 		    {{item}}
  -->	  </li>
 
-<!--  <button (click)="gotoDetail()">Submit</button>
- -->
+<p>{{answerFeedBackMessage}}</p>
+
+ <button (click)="showNextQuestion()">{{getQuestionButtonText}}</button>
+
 
 <div style="width: 100%; clear: both; margin-top: 150px; ">
 	<a routerLink="/question" >Question</a>

@@ -2,13 +2,21 @@
 //may need to inject other dependencies into this service.
 import { Injectable } from '@angular/core';
 
+
+
 import { AnswerGroup } from './answer-group';
 import { ANSWERS } from './../../data/answer-groups';
+import { Answer } from './answer';
+//import { ANSWER } from './../../data/answers';
 
 //The NoteService doesn't have any dependencies at the moment. Add the decorator anyway. It is a "best practice" 
 //to apply the @Injectable() decorator ​from the start​ both for consistency and for future-proofing.
 @Injectable()
 export class AnswerService {
+
+	answerGroup: AnswerGroup;
+	answers: Answer[] = [];
+	correctAnswerChosen: boolean;
 
 	ngOnInit(): void {
 		var that = this;
@@ -46,17 +54,97 @@ export class AnswerService {
 	// // }
 
 	// //return results asynchronously
-	getAnswers(): Promise<AnswerGroup[]> {
+	getAnswerGroups(): Promise<AnswerGroup[]> {
 		//debugger;
 	  return Promise.resolve(ANSWERS);
 	}
 
-	getAnswersToQuestion(id: number): Promise<AnswerGroup> {
+	getAnswerFeedBackMessage(answerGroup: AnswerGroup, selectedAnswer: Answer): String {
+
+		debugger;
+
+		var message;
+
+		var isCorrectAnswer = false;
+		var correctAnswerId = answerGroup.correctAnswerId;
+		var selectedAnswerId = selectedAnswer.id;
+
+		if (correctAnswerId === selectedAnswerId) isCorrectAnswer = true;
+
+		if (isCorrectAnswer) {
+			message = 'Congratulations! You chose the right answer: ' + selectedAnswer.text;
+		} else {
+			message = 'Sorry, you got this wrong. The correct answer was ' + selectedAnswer.text;
+		}
+
+		return message;
+
+
+
+
+
+
+		// if (answerGroup.correctAnswer === selectedAnswer) {
+		// 	console.log('test');
+		// }
+
+		// this.getAnswerGroups().then(function (answerGroups) {
+	 //        that.answerGroup = answerGroups.find(answerGroups => answerGroups.id === id)
+	 //        //debugger;
+	 //        return that.answerGroup;
+	 //      }).then(function (answerGroup) {
+	 //      		      	console.log(answerGroup.realItems);
+
+
+	       
+	 //        //return that.answerService.getAnswersToQuestion(that.question.answersId);
+	 //        //var id = Math.floor(Math.random()*questions.length);
+	 //        //var randomQuestion = questions.find(question => question.id == id);
+	 //         //debugger; debug missing questions here
+	 //        return answerGroup;
+	 //      }).catch(function (err) {
+	 //        console.log(err);
+	 //      });
+
+	 	//var getCorrectAnswer = this.checkIfAnswerCorrect(answerGroup); 
+
+	}
+
+	getCorrectAnswer(answerGroup: AnswerGroup): boolean {
+		// return this.getAnswerGroups()
+	 //             .then(answerGroup => answerGroup.find(answerGroup => answerGroup.id === questionId));
+
+		return false;
+	}
+
+	getAnswersToQuestion(questionId: number): Promise<AnswerGroup> {
+
+		var that = this;
 		// debugger;
 		//get answers with same ids as in itemids
 		//note promise return will be array of answers, not answer group 
-		return this.getAnswers()
-	             .then(answerGroup => answerGroup.find(answerGroup => answerGroup.id === id));
+		return this.getAnswerGroups()
+	             .then(answerGroup => answerGroup.find(answerGroup => answerGroup.id === questionId));
+
+
+	    // return this.getAnswerGroups().then(function (answerGroups) {
+	    //     that.answerGroup = answerGroups.find(answerGroups => answerGroups.id === id)
+	    //     //debugger;
+	    //     return that.answerGroup;
+	    //   }).then(function (answerGroup) {
+
+	    //   	console.log(answerGroup.realItems);
+
+
+	       
+	    //     //return that.answerService.getAnswersToQuestion(that.question.answersId);
+	    //     //var id = Math.floor(Math.random()*questions.length);
+	    //     //var randomQuestion = questions.find(question => question.id == id);
+	    //      //debugger; debug missing questions here
+	    //     return answerGroup;
+	    //   }).catch(function (err) {
+	    //     console.log(err);
+	    //   }); 
 
 
 	}	

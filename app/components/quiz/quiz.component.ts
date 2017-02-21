@@ -15,6 +15,9 @@ import { QuestionService } from './../../models/question/question.service';
 import { AnswerGroup } from './../../models/answer/answer-group';
 import { AnswerService } from './../../models/answer/answer.service';
 
+import { Answer } from './../../models/answer/answer';
+
+
 @Component({
   selector: 'my-quiz',
   templateUrl: 'app/components/quiz/quiz.component.html',
@@ -29,6 +32,7 @@ export class QuizComponent implements OnInit {
    // question: Question;
  // answers: AnswerGroup[] = [];
   answerGroup: AnswerGroup[] = [];
+  getQuestionButtonText = 'Skip this question';
 
   //note: Note;
   //Define a notes array property.
@@ -37,6 +41,8 @@ export class QuizComponent implements OnInit {
   count: number;
   priorityNotes: Note[];
   date: Date = new Date();
+
+  answerFeedBackMessage: String;
 
 
   //Inject the NoteService in the constructor and hold it in a private noteService field.
@@ -47,14 +53,26 @@ export class QuizComponent implements OnInit {
     private answerService: AnswerService) { 
   }
 
- onSelectionChange(item: AnswerGroup) {
-   console.log(item);
+ onSelectionChange(answerGroup: AnswerGroup, selectedAnswer: Answer) {
+   console.log(selectedAnswer);
       //this.selectedEntry = entry;
-    this.getRandomQuestion();
-
+    //this.getCorrectAnswer(answerGroup, selectedAnswer);
+    this.answerFeedBackMessage = this.answerService.getAnswerFeedBackMessage(answerGroup, selectedAnswer);
+    this.getQuestionButtonText = 'Show me the next question!';
   }
 
-  checkIfCorrectAnswer(): void {
+  showNextQuestion(): void {
+    debugger;
+    this.answerFeedBackMessage = "";
+    this.getRandomQuestion();
+    this.getQuestionButtonText = 'Skip this question';
+  }
+
+  getCorrectAnswer(answerGroup: AnswerGroup, selectedAnswer: Answer): void {
+
+    //
+
+    //
 
 
   }
@@ -160,9 +178,9 @@ export class QuizComponent implements OnInit {
 
     var that = this;
 
-    this.getAnswers();
+    //this.getAnswers();
 
-     this.getQuestions();
+    // this.getQuestions();
      this.getRandomQuestion();
 
    // this.noteService.getNotes().then(

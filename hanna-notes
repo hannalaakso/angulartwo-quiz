@@ -22,9 +22,17 @@ Create multiple clickable answers list (checkboxes?) https://juristr.com/blog/20
 Sprint 4
 Refresh to show new random question when checkbox ticked
 Create answer group model and separate answer model http://stackoverflow.com/questions/40633688/how-to-define-a-nested-object-within-model-angular2-typescript
-Check if question answered correctly
-Make sure random question is not current question
 
+Show answers linked to answer group 1h
+Check if question answered correctly 2h
+Make sure random question is not current question 1h
+Check this can be moved to website 1h
+Move to website 1h (make non-indexable by search engines)
+Improve look and feel a tiny bit - add Bootstrap? 2h
+Tidy up code 1h
+
+Updated LinkedIn and CV - 4h
+Update website - 3h
 
 
 Sprint 5
@@ -36,8 +44,8 @@ Sprint 6:
 Show progress bar
 
 Unresolved things:
--In question.service.ts > getRandomQuestion, promises should be chained as something getQuestions is not resolved when questions.length
-is being fetched
+(-In question.service.ts > getRandomQuestion, promises should be chained as something getQuestions is not resolved when questions.length
+is being fetched)
 -in question.component.ts, question: Question[] = [] should be question: Question but this doesn't get picked by quizcomponent. currently 
 this throws an error on npm start
 

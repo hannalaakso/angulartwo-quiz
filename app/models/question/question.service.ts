@@ -10,6 +10,8 @@ import { QUESTIONS } from './../../data/questions';
 @Injectable()
 export class QuestionService {
 
+	currentQuestion: Question;
+
 	 questions: Question[] = [];
 
 	ngOnInit(): void {
@@ -34,16 +36,18 @@ export class QuestionService {
 
 
            return this.getQuestions().then(function (questions) {
-                //that.questions = questions;
-                //debugger;
                 return questions;
               }).then(function (questions) {
                
-                //return that.answerService.getAnswersToQuestion(that.question.answersId);
-                var id = Math.floor(Math.random()*questions.length);
-                var randomQuestion = questions.find(question => question.id == id);
-                 //debugger; debug missing questions here
-                return randomQuestion;
+                var id = 0;
+
+                do {
+				   id = Math.floor(Math.random()*questions.length);
+				} while (that.currentQuestion && id === that.currentQuestion.id);
+
+                that.currentQuestion =  questions.find(question => question.id == id);
+                return that.currentQuestion;
+
               }).catch(function (err) {
                 console.log(err);
               }); 
