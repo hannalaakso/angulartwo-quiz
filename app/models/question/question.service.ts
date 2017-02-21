@@ -24,9 +24,29 @@ export class QuestionService {
 
 	getRandomQuestion(): Promise<Question> {
 
-		return this.getQuestions()
-           .then(questions => this.questions = questions)
-           .then(questions => questions.find(question => question.id == Math.floor(Math.random()*questions.length)));
+		var that = this;
+
+
+
+		// return this.getQuestions()
+  //          .then(questions => this.questions = questions)
+  //          .then(questions => questions.find(question => question.id == Math.floor(Math.random()*questions.length)));
+
+
+           return this.getQuestions().then(function (questions) {
+                //that.questions = questions;
+                //debugger;
+                return questions;
+              }).then(function (questions) {
+               
+                //return that.answerService.getAnswersToQuestion(that.question.answersId);
+                var id = Math.floor(Math.random()*questions.length);
+                var randomQuestion = questions.find(question => question.id == id);
+                 //debugger; debug missing questions here
+                return randomQuestion;
+              }).catch(function (err) {
+                console.log(err);
+              }); 
 
   //         this.questionService.getRandomQuestion()
   //         .then(question => this.question = question);

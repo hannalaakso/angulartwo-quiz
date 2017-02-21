@@ -27,10 +27,10 @@
 
  <h5>Please select from these answers</h5>
 
- <p>{{relevantAnswers.text}}</p>
+ <p>{{answerGroup.text}}</p>
 
 <!-- Add [checked]="idx === 0" to input to have first item selected -->
- 	  <li *ngFor="let item of relevantAnswers.items; let idx = index">
+ 	  <li *ngFor="let item of answerGroup.items; let idx = index">
 		    <span class="badge">{{item}}</span> 
 		    <input type="radio" name="radiogroup"
 		     

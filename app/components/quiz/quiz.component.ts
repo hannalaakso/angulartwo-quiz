@@ -12,7 +12,7 @@ import { NoteService } from './../../old-modules/note.service';
 import { Question } from './../../models/question/question';
 import { QuestionService } from './../../models/question/question.service';
 
-import { AnswerGroup } from './../../models/answer/answer';
+import { AnswerGroup } from './../../models/answer/answer-group';
 import { AnswerService } from './../../models/answer/answer.service';
 
 @Component({
@@ -27,8 +27,8 @@ export class QuizComponent implements OnInit {
   questions: Question[] = [];
   question: Question[] = [];
    // question: Question;
-  answers: AnswerGroup[] = [];
-  relevantAnswers: AnswerGroup[] = [];
+ // answers: AnswerGroup[] = [];
+  answerGroup: AnswerGroup[] = [];
 
   //note: Note;
   //Define a notes array property.
@@ -118,23 +118,22 @@ export class QuizComponent implements OnInit {
              //   .then(question => this.question = question)
              //   .then(relevantAnswers => this.relevantAnswers = this.answerService.getAnswersToQuestion(this.question.answerId));
 
+             //debugger;
+
             this.questionService.getRandomQuestion().then(function (question) {
                 that.question = question;
-                // debugger;
+               // debugger;
               }).then(function (question) {
-                // debugger;
-                return that.answerService.getAnswersToQuestion(that.question.answersId);
-              }).then(function (relevantAnswers) {
-                debugger;
-                 that.relevantAnswers = relevantAnswers;
+                //debugger;
+                //return that.answerService.getAnswersToQuestion(that.question.answersId);
+                return that.getAnswers(that.question.answerGroupId);
+              }).then(function (answerGroup) {
+                //debugger;
+                 that.answerGroup = answerGroup;
                  // debugger;
               }).catch(function (err) {
                 console.log(err);
-              });   
-
-               
-               
-               
+              }); 
                
 
              //debugger;
@@ -150,6 +149,10 @@ export class QuizComponent implements OnInit {
 
 
     //this.questionService.getRandomQuestion((Math.floor(Math.random()*this.questions.length))).then(randomQuestion => this.randomQuestion = randomQuestion);
+  }
+
+  getAnswers(answerGroupId): void {
+    return this.answerService.getAnswersToQuestion(answerGroupId);
   }
 
   //Call the service to get notes inside the Angular ngOnInit lifecycle hook.

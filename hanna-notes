@@ -21,8 +21,9 @@ Create multiple clickable answers list (checkboxes?) https://juristr.com/blog/20
 
 Sprint 4
 Refresh to show new random question when checkbox ticked
-Give each answer id
+Create answer group model and separate answer model http://stackoverflow.com/questions/40633688/how-to-define-a-nested-object-within-model-angular2-typescript
 Check if question answered correctly
+Make sure random question is not current question
 
 
 
