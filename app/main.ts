@@ -1,8 +1,8 @@
 //see systemjs.config.js
 
-import {enableProdMode} from '@angular/core';
+// import {enableProdMode} from '@angular/core';
 
-enableProdMode();
+// enableProdMode();
 
 
 //Because the QuickStart application runs directly in the browser, main.ts imports the platformBrowserDynamic function 
