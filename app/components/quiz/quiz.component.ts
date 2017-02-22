@@ -28,10 +28,10 @@ import { Answer } from './../../models/answer/answer';
 export class QuizComponent implements OnInit {
 
   questions: Question[] = [];
-  question: Question[] = [];
+  question: Question;
    // question: Question;
  // answers: AnswerGroup[] = [];
-  answerGroup: AnswerGroup[] = [];
+  answerGroup: AnswerGroup;
   getQuestionButtonText = 'Skip this question';
 
   //note: Note;
@@ -77,46 +77,46 @@ export class QuizComponent implements OnInit {
 
   }
 
-  getAnswers(): void {
-    var that = this;
+  // getAnswers(): void {
+  //   var that = this;
 
-    //get answerid from randomquestion
-    //get answer that matches that id
-
-
-    // that.answerService.getAnswers().then(function(data){
-    //  debugger;
-
-    //   that.relevantAnswers = _.find(data, function (o){
-    //     debugger;
-    //     return o.id === 1;
-    //   });
-
-    // });
+  //   //get answerid from randomquestion
+  //   //get answer that matches that id
 
 
-    // var getMatchingAnswers = function () {
-    //     this.answerService.getAnswers()
-    //       // .then()
-    //       .then(function () {
-    //         _.find(this.answers, function (o){
-    //           debugger;
-    //           console.log(o.answersId === 1);
-    //           console.log('test');
+  //   // that.answerService.getAnswers().then(function(data){
+  //   //  debugger;
+
+  //   //   that.relevantAnswers = _.find(data, function (o){
+  //   //     debugger;
+  //   //     return o.id === 1;
+  //   //   });
+
+  //   // });
+
+
+  //   // var getMatchingAnswers = function () {
+  //   //     this.answerService.getAnswers()
+  //   //       // .then()
+  //   //       .then(function () {
+  //   //         _.find(this.answers, function (o){
+  //   //           debugger;
+  //   //           console.log(o.answersId === 1);
+  //   //           console.log('test');
            
-    //       })
-    //       // .catch(function (error) {
-    //       //   // if there are any errors in promise chain
-    //       //   // we can catch them in one place, yay!
-    //       // });
-    // };
+  //   //       })
+  //   //       // .catch(function (error) {
+  //   //       //   // if there are any errors in promise chain
+  //   //       //   // we can catch them in one place, yay!
+  //   //       // });
+  //   // };
 
-    // this.answerService.getAnswers()
-    //   // .then(
-    //   //     relevantAnswers => _.find(this.answers, function (o){debugger;console.log(o.answersId === 1);console.log('test');
-    //   //       //return;
-    //   //   });
-  }
+  //   // this.answerService.getAnswers()
+  //   //   // .then(
+  //   //   //     relevantAnswers => _.find(this.answers, function (o){debugger;console.log(o.answersId === 1);console.log('test');
+  //   //   //       //return;
+  //   //   //   });
+  // }
 
   getQuestions(): void {
     this.questionService.getQuestions().then(questions => this.questions = questions);
@@ -169,7 +169,7 @@ export class QuizComponent implements OnInit {
     //this.questionService.getRandomQuestion((Math.floor(Math.random()*this.questions.length))).then(randomQuestion => this.randomQuestion = randomQuestion);
   }
 
-  getAnswers(answerGroupId): void {
+  getAnswers(answerGroupId: number): Promise<AnswerGroup> {
     return this.answerService.getAnswersToQuestion(answerGroupId);
   }
 

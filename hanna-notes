@@ -28,19 +28,24 @@ Check if question answered correctly 2h
 Make sure random question is not current question 1h
 Check this can be moved to website 1h
 Move to website 1h (make non-indexable by search engines)
+
+Sprint 5
+Fix error on pageload where realitems can't be found (see console on pageload)
 Improve look and feel a tiny bit - add Bootstrap? 2h
 Tidy up code 1h
+
+
 
 Updated LinkedIn and CV - 4h
 Update website - 3h
 
 
-Sprint 5
+Sprint 6
 Create data:
 User stats:
 Questions answered correctly
 
-Sprint 6:
+Sprint 7:
 Show progress bar
 
 Unresolved things:
